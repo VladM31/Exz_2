@@ -142,7 +142,9 @@
     <ClCompile Include="Exz_2.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="First.h" />
     <ClInclude Include="Task2.h" />
+    <ClInclude Include="Task6.h" />
     <ClInclude Include="Task7.h" />
     <ClInclude Include="Task9.h" />
   </ItemGroup>
