@@ -1,17 +1,8 @@
 #pragma once
-#include <random>
-#include <iostream>
-#include <iomanip>
-#include <string>
-#include <vector>
-#include <algorithm>
-#include <math.h>
-#define Enter (std::cout << std::endl);
-#define _USE_MATH_DEFINES
-#define M_PI 3.14159265358979323846
-#define M_E 2.71828182845904523536
 
-using namespace std;
+#include "First.h"
+
+
 
 
 double Mediana(const vector<double>& arr);
@@ -110,6 +101,7 @@ double dopQuartile(const vector<double>& arr, int percent)
     }
     return temp;
 }
+// ==== Вывод всех значеный искаемих квартелей =========
 void Quartile(const vector<double>& arr)
 {
     cout << "Нижняя квартиль  (0.25) = " << dopQuartile(arr, 25) << endl;
@@ -118,10 +110,10 @@ void Quartile(const vector<double>& arr)
     cout << "Децили           (0.90) = " << dopQuartile(arr, 90) << endl;
     cout << "Процентили       (0.99) = " << dopQuartile(arr, 99) << endl;
 }
-
+// ====== Медиана =======
 double Mediana(const vector<double>& arr)
 {
-    if (arr.size() % 2 == 0) // чотное
+    if (arr.size() % 2 == 0) // Чётное
     {
         return (arr[arr.size() / 2 - 1] + arr[arr.size() / 2]) / 2.0;
     }
@@ -130,6 +122,80 @@ double Mediana(const vector<double>& arr)
         return arr[arr.size() / 2];
     }
 }
+// Цезурирую 2% масива
+int Censored(vector<double> &arr)
+{
+    int needToRemoveSize = static_cast<int>((arr.size()/2) * 0.02);
+    if (needToRemoveSize < 1)
+    {
+        return 0;
+    }
+ 
+    for (int i = 0; i < needToRemoveSize; i++)
+    {
+       arr.erase(arr.begin());
+       arr.erase(arr.begin() + arr.size()-1);  
+    }
+    return needToRemoveSize;
+}
+
+void PrintColumn(int size, int value)
+{
+    for (size_t i = 0; i < 3; i++)
+    {
+        if (size == 0)
+        {
+            printf("|\n| %d\n|\n", value);
+            return;
+        }
+        for (size_t j = 0; j < size; j++)
+        {
+            printf("*");
+        }
+       
+        if (i == 1)
+        {
+            printf("  %d", value);
+        }
+        printf("\n");
+    }
+}
+
+void Gistograma(vector<double>& arr, double jump/*шаг*/, double scale/*маштаб*/)
+{
+    if (arr.size() < jump || jump <= 0 || scale <= 0)
+    {
+        return;
+    }
+    double firstPoint = 0.0, secondPoint = jump;
+    int count = 0;
+    int index = 0;
+    cout.precision(2);
+    while (secondPoint < arr.back())
+    {
+        while(arr[index] < secondPoint)
+        {
+            index++;
+            count++;
+        }
+
+        cout << "отрезок [ " << firstPoint << " , " << secondPoint << " )" << endl;
+        PrintColumn(count/ scale, count);
+        count = 0;
+        firstPoint += jump;
+        secondPoint += jump;
+    }
+
+    count = 0;
+    while (index < arr.size())
+    {
+        index++;
+        count++;
+    }
+    cout << "отрезок [ " << firstPoint << " , " << arr.back() << " ]" << endl;
+    PrintColumn(count / scale, count);
+
+}
 
 
 void Answer2()
@@ -137,11 +203,25 @@ void Answer2()
     cout << " Task 2" << endl;
     double m = 4; // заданое Мат ожидание
     double d = 1; // заданая Дисперсия
-    int setSize = 9;
+    int setSize = 1200;
     vector<double> arr(setSize);
     func_1(m, d, arr);
 
-    PrintVector(arr);
+   // PrintVector(arr);
+    Enter;
+    int deleteSize = Censored(arr);
+    if (deleteSize)
+    {
+        cout << "Цензурированные выполнено. Количество удалених елементов = "<< deleteSize * 2 << endl;
+    }
+    else
+    {
+        cout << "Цензурированные не выполнено" << endl;
+    }
+    Enter;
+    Gistograma(arr, 1, 4);
+    Enter;
+//    PrintVector(arr);
 
     cout << "Матожидание             = " << MathWait(arr) << endl;
     Enter;
