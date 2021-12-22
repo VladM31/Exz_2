@@ -29,5 +29,11 @@
     <ClInclude Include="Task9.h">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
+    <ClInclude Include="Task6.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="First.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
