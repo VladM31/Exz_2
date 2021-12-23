@@ -207,27 +207,45 @@ void Answer2()
     vector<double> arr(setSize);
     func_1(m, d, arr);
 
-   // PrintVector(arr);
-    Enter;
-    int deleteSize = Censored(arr);
-    if (deleteSize)
-    {
-        cout << "Цензурированные выполнено. Количество удалених елементов = "<< deleteSize * 2 << endl;
-    }
-    else
-    {
-        cout << "Цензурированные не выполнено" << endl;
-    }
+    PrintVector(arr);
     Enter;
     Gistograma(arr, 1, 4);
     Enter;
-//    PrintVector(arr);
 
     cout << "Матожидание             = " << MathWait(arr) << endl;
     Enter;
     cout << "Дисперсия               = " << Dispersia(arr) << endl;
     Enter;
     cout << "Квартиль : "  << endl;
+    Quartile(arr);
+    Enter;
+    cout << "Медиана                 = " << Mediana(arr) << endl;
+    /// <summary>
+    /// ------------------------------------ цензурирование
+    /// </summary>
+    Enter;
+    Enter;
+    int deleteSize = Censored(arr);
+    if (deleteSize)
+    {
+        cout << "Цензурированные выполнено. Количество удалених елементов = " << deleteSize * 2 << endl;
+    }
+    else
+    {
+        cout << "Цензурированные не выполнено" << endl;
+    }
+    Enter;
+    PrintVector(arr);
+    Enter;
+    Gistograma(arr, 1, 4);
+    Enter;
+  
+
+    cout << "Матожидание             = " << MathWait(arr) << endl;
+    Enter;
+    cout << "Дисперсия               = " << Dispersia(arr) << endl;
+    Enter;
+    cout << "Квартиль : " << endl;
     Quartile(arr);
     Enter;
     cout << "Медиана                 = " << Mediana(arr) << endl;
