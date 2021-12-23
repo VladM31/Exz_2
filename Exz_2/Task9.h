@@ -76,7 +76,7 @@ void Comment(int n, double p)
 void Answer9()
 {
 	int n = 100;
-	double m = 8;
+	double m = 8;//  = n * частоту
 	double a = 0.05;
 	double p0 = 0.12;
 

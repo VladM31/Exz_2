@@ -6,8 +6,8 @@ int main()
 {
     setlocale(LC_ALL, "Russian");
    
-    /*Answer2();
-    Enter;
+    //Answer2();
+    /**Enter;
     Enter;
     Enter;*/
     //Answer6();
@@ -18,9 +18,9 @@ int main()
    /* Enter;
     Enter;
     Enter;*/
-    //Answer9();
+    Answer9();
     /* Enter;
     Enter;
     Enter;*/
-    Answer8();
+    //Answer8();
 }

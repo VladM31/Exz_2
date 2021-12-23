@@ -203,13 +203,14 @@ void Answer2()
     cout << " Task 2" << endl;
     double m = 4; // заданое Мат ожидание
     double d = 1; // заданая Дисперсия
-    int setSize = 1200;
+    int setSize = 100;
     vector<double> arr(setSize);
+    // Заполняю вектор по нормальному закону
     func_1(m, d, arr);
-
+    // Вивод
     PrintVector(arr);
     Enter;
-    Gistograma(arr, 1, 4);
+    Gistograma(arr, 1, 1);
     Enter;
 
     cout << "Матожидание             = " << MathWait(arr) << endl;
@@ -233,6 +234,7 @@ void Answer2()
     else
     {
         cout << "Цензурированные не выполнено" << endl;
+        return;
     }
     Enter;
     PrintVector(arr);

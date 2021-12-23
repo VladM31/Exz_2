@@ -207,7 +207,7 @@ void Answer8()
 
 		
 	}
-	else if (pravelo == 2)
+	else if (sx > sy)
 	{
 		int k = n + m - 2;
 		uT = T(x, y, n, m, sx, sy);
@@ -226,7 +226,7 @@ void Answer8()
 			cout << "¬ыборочные средние различаютс€ значимо" << endl;
 		}
 	}
-	else if (pravelo == 3)
+	else if (sx < sy)
 	{
 		int k = n + m - 2;
 		uT = T(x, y, n, m, sx, sy);
