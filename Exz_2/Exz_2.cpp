@@ -1,5 +1,5 @@
 ﻿#include "Task6.h"
-
+#include "Task8.h"
 
 
 int main()
@@ -18,6 +18,9 @@ int main()
    /* Enter;
     Enter;
     Enter;*/
-    Answer9();
-   
+    //Answer9();
+    /* Enter;
+    Enter;
+    Enter;*/
+    Answer8();
 }
