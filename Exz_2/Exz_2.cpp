@@ -1,12 +1,16 @@
 ﻿#include "Task6.h"
 #include "Task8.h"
-
+#include "Task5.h"
 
 int main()
 {
     setlocale(LC_ALL, "Russian");
    
     //Answer2();
+    /**Enter;
+    Enter;
+    Enter;*/
+    //Answer5();
     /**Enter;
     Enter;
     Enter;*/
@@ -18,7 +22,7 @@ int main()
    /* Enter;
     Enter;
     Enter;*/
-    Answer9();
+    //Answer9();
     /* Enter;
     Enter;
     Enter;*/
